@@ -607,7 +607,8 @@ div.woocommerce  {
 .woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
   padding: .5em 0;
   margin: 0;
-  font-size: 1em
+  font-size: 1em;
+  text-align: center;
 }
 
 .woocommerce ul.products li.product a {

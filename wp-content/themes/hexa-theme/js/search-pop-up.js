@@ -41,7 +41,7 @@ $(document).ready(function(){
 	var $container = $('.items');
     $container.imagesLoaded(function () {
         $container.isotope({
-            itemSelector: '.item',
+            //itemSelector: '.product',
             layoutMode: 'fitRows'
      });
 });

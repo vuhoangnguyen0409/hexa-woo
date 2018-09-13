@@ -18,7 +18,7 @@ wp_reset_query();  ?>
         </div>
       </div>
       <div class="container-fluid">
-        <ul class="row items">
+        <ul class="row items" style="display: none;">
 
           <!-- Portfolio Item -->
 			<?php $args = array(
@@ -65,6 +65,33 @@ if ( have_posts() ):
 endif;
 wp_reset_query();  ?>
         </ul>
+        <div class="row items ">
+        	<?php
+        		$args = array(
+        			'post_type' => 'product',
+        			'posts_per_page' => 12
+        			);
+        		$loop = new WP_Query( $args );
+        		if ( $loop->have_posts() ) {
+        			while ( $loop->have_posts() ) : $loop->the_post();
+
+              $terms  = get_the_terms( $product->ID, 'product_cat' );
+              //echo '<pre>'; print_r($terms); echo '</pre>';
+              $cats = '';
+              if( !empty($terms) ) :
+         				foreach($terms as $row )
+         					$cats .= $row->slug.' ';
+     			    endif;
+        				?> <div class="item col-md-3 no-padding <?php echo $cats; ?>"> <?php
+                wc_get_template_part( 'content', 'product' );
+                ?> </div></div> <?php
+        			endwhile;
+        		} else {
+        			echo __( 'No products found' );
+        		}
+        		wp_reset_postdata();
+        	?>
+        </div><!--/.products-->
       </div>
     </div>
 <?php get_footer(); ?>

@@ -115,10 +115,26 @@ if( $logo ): ?>
               <!--======= NAV LINKS =========-->
               <ul class="nav-links filter">
                 <li><a class="active" href="#." data-filter="*">ALL</a></li>
-                <li><a href="#" data-filter=".brand">BRANDING</a></li>
-                <li><a href="#" data-filter=".web">WEB DESIGN</a></li>
+                <?php
+                $args = array(
+                    'number'     => $number,
+                    'orderby'    => 'title',
+                    'order'      => 'ASC',
+                    'hide_empty' => $hide_empty,
+                    'include'    => $ids
+                );
+                $product_categories = get_terms( 'product_cat', $args );
+                $count = count($product_categories);
+                if ( $count > 0 ){
+                    foreach ( $product_categories as $product_category ) {
+                        //echo '<h4><a href="' . get_term_link( $product_category ) . '">' . $product_category->name . '</a></h4>';
+                        echo '<li><a href="#" data-filter=".' . $product_category->slug . '">' . $product_category->slug . '</a></li>';
+                    }
+                }
+                ?>
+                <!--<li><a href="#" data-filter=".web">WEB DESIGN</a></li>
                 <li><a href="#" data-filter=".photo">PHOTOGRAPHY</a></li>
-                <li><a href="#" data-filter=".product">PRODUCT DESIGN</a></li>
+                <li><a href="#" data-filter=".product">PRODUCT DESIGN</a></li>-->
               </ul>
               <!--======= Address =========-->
               <p class="ads">123 Abc Town, San Francisco</p>

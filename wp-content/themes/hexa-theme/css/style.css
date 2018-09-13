@@ -374,6 +374,7 @@ header .nav-links li a {
 	color: #99a2b5;
 	font-family: 'Montserrat';
 	font-size: 12px;
+	text-transform: uppercase;
 }
 header .nav-links li a:hover {
 	color: #fee22d;
@@ -585,17 +586,19 @@ header .share .open-navigation {
 	overflow:hidden;
 	min-height: 850px;
 }
-.portfolio ul{ margin-bottom:0px;
 
+.portfolio ul {
+	margin-bottom:0px;
 }
-.portfolio li {
+
+.portfolio li, .product_info {
 	position: relative;
 	overflow: hidden;
 }
 .portfolio li img {
 	width: 100%;
 }
-.portfolio li .hover-sec {
+.hover-sec {
 	border: 12px solid;
 	border-color: transparent;
 	position: absolute;
@@ -611,7 +614,7 @@ header .share .open-navigation {
 	-ms-transition: all 0.4s ease-in-out;
 	transition: all 0.4s ease-in-out;
 }
-.portfolio .hover-sec a.hover-in {
+.hover-sec a.hover-in  {
 	position: absolute;
 	background: rgba(57,63,77,0.85);
 	height: 100%;
@@ -628,7 +631,7 @@ header .share .open-navigation {
 	color:#99a2b5;
 	text-transform:uppercase
 }
-.portfolio li:hover .hover-sec {
+.portfolio li:hover .hover-sec, .portfolio .product_info:hover .hover-sec {
 	opacity: 1;
 	top: 0px;
 }
@@ -1831,4 +1834,65 @@ header .share .open-navigation {
 .search-result li a {
 	font-size: 17px;
 	color: #ff0000;
+}
+
+.item img {
+	width: 100%;
+	padding: 2px;
+}
+
+.item .onsale {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	color: #ff0000;
+	z-index: 7;
+}
+
+.product_info {
+	background: rgba(57,63,77,0.85);
+	color: #fff;
+}
+
+.product_info h2 {
+	font-size: 18px;
+}
+
+.product_info * {
+	color: #fff;
+}
+
+.product_info a, .product_info .amount {
+	display: block;
+	color: #fff;
+}
+
+.ajax_add_to_cart {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 0%);
+	display: inline-block;
+  width: 170px;
+  height: 45px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 45px;
+  outline: none;
+	-webkit-transition: all .3s;
+  transition: all .3s;
+}
+.ajax_add_to_cart:hover {
+  background-color: #fff;
+  border-color: #59b1eb;
+  color: #59b1eb;
+}
+
+.product:hover .hover-sec  {
+	opacity: 1;
+	top: 2px;
+}
+
+.woocommerce-loop-product__link img {
+	height: auto;
 }
