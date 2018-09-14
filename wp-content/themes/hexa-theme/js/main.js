@@ -3,6 +3,13 @@
 /*-----------------------------------------------------------------------------------*/
 $(document).ready(function($) {
   "use strict"
+  //woo tabs
+  $('.wc-tabs li a').click(function(){
+    var current_tab = $(this).attr('href');
+    $('.woocommerce-tabs .panel').hide();
+    $(current_tab).fadeIn();
+  });
+  
   //item more
   $('.item-more').hide();
   $('.btn-more').on('click', function() {
