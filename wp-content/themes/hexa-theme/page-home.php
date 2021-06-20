@@ -18,7 +18,7 @@ wp_reset_query();  ?>
         </div>
       </div>
       <div class="container-fluid">
-        <ul class="row items" style="display: none;">
+        <ul class="row items">
 
           <!-- Portfolio Item -->
 			<?php $args = array(
